@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Home Page</title>
+        <style th:replace="base :: style"></style>
+    </head>
+    <body>
+        <div th:replace="base :: header"></div>
+        <main class="container">
+
+            <form th:action="@{/}" class="mt-2 mb-2">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Enter name" name="name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Enter min price" name="fromPrice">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Enter max price" name="toPrice">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="form-control btn btn-success mt-2">Tim kiem</button>
+                    </div>
+                </div>
+
+            </form>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="product : ${products}">
+                        <td><img th:src="${product.image}" width="200"/></td>
+                        <td th:text="${product.id}"></td>
+                        <td th:text="${product.name}"></td>
+                        <td th:text="${product.price} + ' VND'"></td>
+                        <td>
+                            <button class="btn btn-danger">&times;</button>
+                            <a href="#" class="btn btn-info">&Alpha;</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="#" th:href="@{'/products'}" class="btn btn-success">Them san pham</a>
+        </main>
+        <div th:replace="base :: footer"></div>
+
+    </body>
+</html>
