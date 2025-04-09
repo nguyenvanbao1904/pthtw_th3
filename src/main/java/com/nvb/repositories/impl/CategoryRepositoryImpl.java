@@ -27,9 +27,8 @@ public class CategoryRepositoryImpl implements CategoryRepository{
     
     @Override
     public List<Category> getAll() {
-    try(Session s = factory.getObject().openSession()){
+        Session s = factory.getObject().getCurrentSession();
             Query q = s.createQuery("from Category", Category.class);
             return q.getResultList();
         }
-    }
 }
