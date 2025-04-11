@@ -46,7 +46,10 @@
                         <td th:text="${product.name}"></td>
                         <td th:text="${product.price} + ' VND'"></td>
                         <td>
-                            <button class="btn btn-danger">&times;</button>
+                            <button class="btn btn-danger"
+                                    th:onclick="|deleteProduct('@{/api/products}', ${product.id})|">
+                                &times;
+                            </button>
                             <a th:href="@{'/products/' + ${product.id}}" class="btn btn-info">&Alpha;</a>
                         </td>
                     </tr>
@@ -55,6 +58,6 @@
             <a href="#" th:href="@{'/products'}" class="btn btn-success">Them san pham</a>
         </main>
         <div th:replace="base :: footer"></div>
-
+        <script th:src="@{/js/main.js}"></script>
     </body>
 </html>

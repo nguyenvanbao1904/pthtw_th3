@@ -4,6 +4,7 @@
  */
 package com.nvb.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -70,8 +71,10 @@ public class User implements Serializable {
     @Column(name = "avatar")
     private String avatar;
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private Set<SaleOrder> saleOrders;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonIgnore
     private Set<Comment> comments;
 
     public User() {

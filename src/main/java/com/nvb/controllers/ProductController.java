@@ -28,7 +28,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/{productId}")
-    public String updateView(Model model, @PathVariable("productId") Integer productId) {
+    public String updateView(Model model, @PathVariable("productId") int productId) {
         Product product = this.productService.getProductById(productId);
         model.addAttribute("product", product);
         return "product";

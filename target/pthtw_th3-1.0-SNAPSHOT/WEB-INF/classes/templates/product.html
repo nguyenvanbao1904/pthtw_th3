@@ -8,7 +8,7 @@
 <div th:replace="base :: header"></div>
 <main class="container">
     <h1 class="text-center text-info mt-1">QUAN TRI SAN PHAM</h1>
-    <form th:action="@{/add}" class="mt-2 mb-2" th:object="${product}" method="post">
+    <form th:action="@{/add}" class="mt-2 mb-2" th:object="${product}" method="post" enctype="multipart/form-data">
         <div class="mb-3 mt-3">
             <input type="text" class="form-control" placeholder="Enter name" th:field="*{name}">
         </div>
@@ -20,7 +20,14 @@
                 <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
             </select>
         </div>
+        <div class="mb-3 mt-3">
+            <label>Ảnh sản phẩm</label>
+            <input type="file" class="form-control" th:field="*{file}" />
+
+            <img th:src="${product.image}" width="200" th:if="${product.id != null}" />
+        </div>
         <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{image}" />
         <div class="row">
             <div class="col">
                 <button type="submit" class="form-control btn btn-success mt-2" th:if="${product.id == null}">Them san pham</button>

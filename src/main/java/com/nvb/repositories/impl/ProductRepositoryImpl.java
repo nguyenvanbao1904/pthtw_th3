@@ -89,8 +89,6 @@ public class ProductRepositoryImpl implements ProductRepository {
             s.merge(product);
         }
         s.refresh(product);
-
-
         return product;
     }
 
