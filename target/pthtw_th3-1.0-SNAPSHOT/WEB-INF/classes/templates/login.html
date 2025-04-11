@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quan tri san pham</title>
+    <style th:replace="base :: style"></style>
+</head>
+<body>
+<div th:replace="base :: header"></div>
+<main class="container">
+    <h1 class="text-center text-info mt-1">Dang Nhap</h1>
+    <form th:action="@{/login}" class="mt-2 mb-2" method="post">
+        <div class="mb-3 mt-3">
+            <input type="text" class="form-control" placeholder="Enter name" name="username">
+        </div>
+        <div class="mb-3 mt-3">
+            <input type="text" class="form-control" placeholder="Enter password" name="password">
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="form-control btn btn-success mt-2">Dang nhap</button>
+            </div>
+        </div>
+
+    </form>
+</main>
+<div th:replace="base :: footer"></div>
+
+</body>
+</html>
